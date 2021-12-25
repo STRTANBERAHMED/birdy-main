@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import './PlaceOrders.css'
+import useAuth from '../../../hooks/useAuth';
+import Appbar from '../../Shared/Appbar/Appbar';
+import Footer from '../../Shared/Footer/Footer';
+import './PlaceOrders.css';
 
 const PlaceOrders = () => {
     const [product, setProduct] = useState({});
+    const [control, setControl] = useState(false);
     const { productId } = useParams();
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`https://sleepy-refuge-74086.herokuapp.com/singleProduct/${productId}`)
+        fetch(`http://localhost:5000/singleProduct/${productId}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
-    }, [])
+    }, [control])
 
     console.log(product)
 
@@ -21,7 +24,7 @@ const PlaceOrders = () => {
     const onSubmit = data => {
         data.status = "pending";
 
-        fetch("https://sleepy-refuge-74086.herokuapp.com/confirmOrder", {
+        fetch("http://localhost:5000/confirmOrder", {
             method: "post",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -29,16 +32,18 @@ const PlaceOrders = () => {
             .then((res) => res.json())
             .then((result) => console.log(result));
         console.log(data);
+        alert('Order Placed Successfully')
     }
     return (
         <div>
+            <Appbar></Appbar>
             <div className="row container">
                 <div className="col-md-6 my-5">
                     <div className="details-img">
                         <img className="w-75" src={product?.picture} alt="" />
                     </div>
                     <h2>{product?.name}</h2>
-                    <h1> {product?.season}</h1>
+                    <h1> {product?.Breed}</h1>
                     <h1 className="text-danger"> {product?.price}$</h1>
                 </div>
                 <div className="orders col-md-6">
@@ -72,20 +77,20 @@ const PlaceOrders = () => {
                         />
 
                         <input
-                            {...register("date")}
+                            {...register("date", { required: true })}
                             type="date"
                             className="p-2 m-2 w-50"
                         />
 
                         <input
-                            {...register("model", { required: true })}
-                            defaultValue={product?.season}
+                            {...register("breed", { required: true })}
+                            defaultValue={product?.Breed}
                             className="p-2 m-2 w-50"
                         />
 
                         <select {...register("condition")} className="p-2 m-2 w-50">
-                            <option value="premium">Brand New</option>
-                            <option value="classic">Recondition</option>
+                            <option value="premium">Normal</option>
+                            <option value="classic">Best</option>
                         </select>
 
                         <input
@@ -106,6 +111,7 @@ const PlaceOrders = () => {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </div >
     );
 };

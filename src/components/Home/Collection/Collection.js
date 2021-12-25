@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 const Collection = (props) => {
@@ -22,11 +22,11 @@ const Collection = (props) => {
                         <p className="card-text">{Breed}</p>
                         <p className="card-text">{price}$</p>
                     </div>
-                    <NavLink to={`/projects/${_id}`}>
+                    <Link to={`/placeOrders/${_id}`}>
                         <Button className="link-button my-4" variant="dark">
                             Order Now
                         </Button>
-                    </NavLink>
+                    </Link>
                 </div>
             </div>
         </div>

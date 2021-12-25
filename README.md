@@ -1,5 +1,6 @@
 # Birdy
 live website link: https://birdy-20e8f.web.app/
+
 live server link: https://pacific-lowlands-99933.herokuapp.com/
 
 # About my project
@@ -13,6 +14,6 @@ We collect best pigeons from best breeders from all over the world.
 # `customers Satisfaction`
 Our customers are fully satisfied about our birdy. We already sell more then 1000 pigeons.
 # `Repairing Warranty`
-*A fully functional full-stack web application.
-*It’s an e-commerce project, users can buy any pigeon based on their preference. When any user clicks the buy now button page will her/him on the login page. If she/he doesn’t create an account yet then they should go to the registration page. After the registration/login, they can place their orders and they also can manage their orders. It’s fully responsive for mobile and computer. It has a customized admin panel where the admin can add a product, remove a product, approve the product, and make an admin.
-*Used Tools: VS Code, React Js, Bootstrap, Firebase, Node Js, MongoDB, Heroku.
+* A fully functional full-stack web application.
+* It’s an e-commerce project, users can buy any pigeon based on their preference. When any user clicks the buy now button page will her/him on the login page. If she/he doesn’t create an account yet then they should go to the registration page. After the registration/login, they can place their orders and they also can manage their orders. It’s fully responsive for mobile and computer. It has a customized admin panel where the admin can add a product, remove a product, approve the product, and make an admin.
+* Used Tools: VS Code, React Js, Bootstrap, Firebase, Node Js, MongoDB, Heroku.

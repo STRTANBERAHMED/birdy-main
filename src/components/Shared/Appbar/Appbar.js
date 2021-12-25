@@ -17,12 +17,13 @@ const Appbar = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <NavLink className="link" to="/home">Home</NavLink>
                         <NavLink className="link" to="/addServices">AddServices</NavLink>
+                        <NavLink className="link" to="myOrders">My Orders</NavLink>
                         <NavLink className="link" to="/allProducts">AllProducts</NavLink>
                         {user?.email ?
                             <Button onClick={logOut} variant="light">Logout</Button> :
                             <NavLink className="link" to="/login">Login</NavLink>}
                         <Navbar.Text>
-                            <a href="#login">  {user?.email}</a>
+                            <a className="link" href="#login">  {user?.displayName}</a>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

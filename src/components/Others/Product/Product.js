@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
 
@@ -18,11 +18,11 @@ const Product = (props) => {
                         <p className="card-text">{Breed}</p>
                         <p className="card-text">{price}$</p>
                     </div>
-                    <NavLink to={`/placeOrders/${_id}`}>
+                    <Link to={`/placeOrders/${_id}`}>
                         <Button className="link-button my-4" variant="dark">
                             Order Now
                         </Button>
-                    </NavLink>
+                    </Link>
                 </div>
             </div>
         </div>
