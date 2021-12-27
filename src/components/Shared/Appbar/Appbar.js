@@ -20,8 +20,16 @@ const Appbar = () => {
                         <NavLink className="link" to="myOrders">My Orders</NavLink>
                         <NavLink className="link" to="/allProducts">AllProducts</NavLink>
                         {user?.email ?
+                            <div className="d-flex justify-content-center">
+
+                                <NavLink className="link" to="/adminDashboard"><Button variant="light">Dashboard</Button></NavLink>
+
+                                <Button className="link" onClick={logOut} variant="light">Logout</Button>
+                            </div> :
+                            <NavLink to="/login">Login</NavLink>}
+                        {/* {user?.email ?
                             <Button onClick={logOut} variant="light">Logout</Button> :
-                            <NavLink className="link" to="/login">Login</NavLink>}
+                            <NavLink className="link" to="/login">Login</NavLink>} */}
                         <Navbar.Text>
                             <a className="link" href="#login">  {user?.displayName}</a>
                         </Navbar.Text>

@@ -11,14 +11,14 @@ const MyOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://pacific-lowlands-99933.herokuapp.com/myOrders/${user.email}`)
             .then((res) => res.json())
             .then((data) => setMyOrders(data));
     }, [control]);
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://pacific-lowlands-99933.herokuapp.com/deleteOrder/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

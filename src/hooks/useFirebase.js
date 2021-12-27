@@ -8,7 +8,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    // const [admin, setAdmin] = useState(false);
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider()
@@ -74,11 +74,11 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [])
 
-    // useEffect(() => {
-    //     fetch(`https://sleepy-refuge-74086.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    useEffect(() => {
+        fetch(`https://sleepy-refuge-74086.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
     const logOut = () => {
         setIsLoading(true);
@@ -92,7 +92,7 @@ const useFirebase = () => {
 
     return {
         user,
-        // admin,
+        admin,
         isLoading,
         authError,
         registerUser,

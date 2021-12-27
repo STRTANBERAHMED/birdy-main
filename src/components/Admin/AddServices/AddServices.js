@@ -2,15 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import './AddServices.css';
-import Appbar from '../../Shared/Appbar/Appbar';
-import Footer from '../../Shared/Footer/Footer';
 
 const AddService = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://pacific-lowlands-99933.herokuapp.com/services', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
@@ -20,7 +18,6 @@ const AddService = () => {
     }
     return (
         <div className="">
-            <Appbar></Appbar>
             <div className="add-service">
                 <h2>Add a Service</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -33,7 +30,6 @@ const AddService = () => {
                         className="btn btn-dark w-25" />
                 </form>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

@@ -14,6 +14,7 @@ import AuthProvider from './Contexts/AuthProvider';
 import PrivateRoute from './components/Others/PrivateRouter/PrivateRouter';
 import PlaceOrders from './components/Others/PlaceOrders/PlaceOrders';
 import MyOrders from './components/Others/MyOrders/MyOrders';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute exact path="/placeOrders/:productId">
               <PlaceOrders></PlaceOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/adminDashboard">
+              <AdminDashboard></AdminDashboard>
             </PrivateRoute>
             <Route path="/AddServices">
               <AddService></AddService>

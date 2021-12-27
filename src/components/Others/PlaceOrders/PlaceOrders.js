@@ -13,7 +13,7 @@ const PlaceOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleProduct/${productId}`)
+        fetch(`https://pacific-lowlands-99933.herokuapp.com/singleProduct/${productId}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, [control])
@@ -24,7 +24,7 @@ const PlaceOrders = () => {
     const onSubmit = data => {
         data.status = "pending";
 
-        fetch("http://localhost:5000/confirmOrder", {
+        fetch("https://pacific-lowlands-99933.herokuapp.com/confirmOrder", {
             method: "post",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
