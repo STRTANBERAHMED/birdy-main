@@ -16,7 +16,6 @@ const Appbar = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <NavLink className="link" to="/home">Home</NavLink>
-                        <NavLink className="link" to="/addServices">AddServices</NavLink>
                         <NavLink className="link" to="myOrders">My Orders</NavLink>
                         <NavLink className="link" to="/allProducts">AllProducts</NavLink>
                         {user?.email ?
